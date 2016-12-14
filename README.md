@@ -27,3 +27,23 @@ bulkLoadAssets(['/assets/font1.css', '/assets/font2.css'], function(responses) {
 });
 </script>
 ```
+
+### Script Execution
+`inline-script-execution.js`   
+Runs the provided JavaScript source inside a script tag and calls success and error callbacks afterwards
+
+**Usage**    
+```html
+<script type="text/javascript">
+loadAsset('/assets/my-script.js', function(response) {
+  runScript(response, function() {
+    // script has been executed and finished
+  }, function(error) {
+    // script failed
+    throw error;
+  });
+}, function(error) {
+  throw error;
+});
+</script>
+```
