@@ -47,3 +47,21 @@ loadAsset('/assets/my-script.js', function(response) {
 });
 </script>
 ```
+### Font loading
+`inline-font-loading.js`   
+Provides functionality for loading fonts (base64 encoded) once and storing it in localstorage for later usage. These fonts then get injected as a style tag into your html.
+
+**Requirements:**   
+* Fonts are available as base64 encoded css files (.woff)
+* Script for loading assets (see loadAsset above)
+
+**Usage**    
+Just include the two snippets in your html file (one in the head, one at the end of the document) and change the provided variables.
+If the font changes in you need to increase the fontversion so the script knows that the localstorage entry should be deleted and the new fonts will be loaded from the server.
+```html
+<script type="text/javascript">
+var fontversion = '0';
+var fontcachename = '[[INSERT_WEBSITE_NAME_HERE]]-fontcache';
+var fontURI = '[[INSERT_FONT_PATH_HERE]]/fonts.css';
+</script>
+```
